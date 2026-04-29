@@ -1,0 +1,2344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXIOM — Brand Guidelines v1.0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Core Colors */
+            --ultraviolet: #7B2FF7;
+            --hot-pink: #FF2D87;
+            --electric-cyan: #00E5FF;
+            --solar-yellow: #FFD600;
+            --midnight: #0D0221;
+
+            /* Semantic */
+            --success: #00E676;
+            --warning: #FFAB00;
+            --error: #FF1744;
+
+            /* Neutrals */
+            --neutral-light: #F4F0FF;
+            --neutral-mid: #9B8FC2;
+            --neutral-dark: #3A2D5E;
+
+            /* Neutral Ramp */
+            --n-900: #0D0221;
+            --n-800: #1E1440;
+            --n-700: #3A2D5E;
+            --n-500: #9B8FC2;
+            --n-300: #C9C0E8;
+            --n-200: #E8E2F8;
+            --n-100: #F4F0FF;
+
+            /* Gradients */
+            --gradient-prism: linear-gradient(135deg, #7B2FF7, #FF2D87, #00E5FF);
+            --gradient-aurora: linear-gradient(135deg, #7B2FF7, #00E5FF);
+            --gradient-sunset: linear-gradient(135deg, #FF2D87, #FFD600);
+            --gradient-spectrum: linear-gradient(135deg, #FF2D87, #7B2FF7, #00E5FF, #FFD600);
+
+            /* Typography */
+            --font-display: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--n-900);
+            background: white;
+        }
+
+        /* Typography Scale */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3.5rem; font-weight: 800; }
+        h2 { font-size: 2.5rem; font-weight: 700; }
+        h3 { font-size: 1.75rem; font-weight: 600; }
+        h4 { font-size: 1.25rem; font-weight: 600; }
+        h5 { font-size: 1rem; font-weight: 600; }
+
+        p { margin-bottom: 1rem; }
+
+        .mono {
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+        }
+
+        /* Layout */
+        .cover {
+            min-height: 100vh;
+            background: var(--midnight);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(123, 47, 247, 0.15) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-display {
+            font-family: var(--font-display);
+            font-size: 6rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: var(--gradient-prism);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--electric-cyan);
+            margin-bottom: 3rem;
+        }
+
+        .cover-meta {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--neutral-mid);
+            margin-top: 4rem;
+        }
+
+        .confidential {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(123, 47, 247, 0.1);
+            border: 1px solid var(--ultraviolet);
+            border-radius: 4px;
+            color: var(--neutral-light);
+            margin-top: 2rem;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section.dark {
+            background: var(--midnight);
+            color: var(--neutral-light);
+        }
+
+        .section.light {
+            background: white;
+            color: var(--n-900);
+        }
+
+        .section.tinted {
+            background: var(--n-100);
+            color: var(--n-900);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-prism);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--neutral-mid);
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .toc {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .toc-item {
+            padding: 1.5rem;
+            background: rgba(123, 47, 247, 0.05);
+            border: 1px solid var(--n-200);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--n-900);
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .toc-item:hover {
+            border-color: var(--ultraviolet);
+            background: rgba(123, 47, 247, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .toc-number {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--ultraviolet);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .toc-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--n-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .toc-desc {
+            font-size: 0.875rem;
+            color: var(--neutral-mid);
+            line-height: 1.4;
+        }
+
+        /* Color System */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .color-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-swatch {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .color-info {
+            padding: 1rem;
+            background: white;
+            color: var(--n-900);
+        }
+
+        .color-name {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .color-values {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--neutral-mid);
+            line-height: 1.6;
+        }
+
+        .gradient-swatch {
+            height: 120px;
+            border-radius: 12px;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.25rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Typography Samples */
+        .type-specimen {
+            padding: 2rem;
+            background: white;
+            border: 1px solid var(--n-200);
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .type-meta {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--ultraviolet);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Voice Examples */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .voice-card {
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--n-200);
+        }
+
+        .voice-card.do {
+            border-color: var(--success);
+            background: rgba(0, 230, 118, 0.05);
+        }
+
+        .voice-card.dont {
+            border-color: var(--error);
+            background: rgba(255, 23, 68, 0.05);
+        }
+
+        .voice-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .voice-card.do .voice-label {
+            color: var(--success);
+        }
+
+        .voice-card.dont .voice-label {
+            color: var(--error);
+        }
+
+        /* Logo Examples */
+        .logo-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .logo-example {
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .logo-example.on-dark {
+            background: var(--midnight);
+        }
+
+        .logo-example.on-light {
+            background: white;
+            border: 1px solid var(--n-200);
+        }
+
+        .logo-example.on-tinted {
+            background: var(--n-100);
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-text.gradient {
+            background: var(--gradient-prism);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-text.white {
+            color: white;
+        }
+
+        .logo-text.dark {
+            color: var(--midnight);
+        }
+
+        .logo-caption {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            margin-top: 2rem;
+            color: var(--neutral-mid);
+        }
+
+        /* UI Components */
+        .ui-showcase {
+            display: grid;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .btn {
+            font-family: var(--font-display);
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-prism);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--ultraviolet);
+            color: var(--ultraviolet);
+        }
+
+        .btn-ghost {
+            background: rgba(123, 47, 247, 0.1);
+            color: var(--ultraviolet);
+        }
+
+        .card {
+            padding: 2rem;
+            border-radius: 12px;
+            background: white;
+            border: 1px solid var(--n-200);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .card.featured {
+            border: 2px solid var(--ultraviolet);
+            background: linear-gradient(135deg, rgba(123, 47, 247, 0.05), rgba(255, 45, 135, 0.05));
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-violet {
+            background: rgba(123, 47, 247, 0.15);
+            color: var(--ultraviolet);
+        }
+
+        .badge-pink {
+            background: rgba(255, 45, 135, 0.15);
+            color: var(--hot-pink);
+        }
+
+        .badge-cyan {
+            background: rgba(0, 229, 255, 0.15);
+            color: var(--electric-cyan);
+        }
+
+        /* Application Examples */
+        .app-example {
+            margin: 3rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .slide-mockup {
+            background: var(--midnight);
+            padding: 4rem;
+            color: white;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-prism);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-mockup {
+            background: var(--midnight);
+            padding: 5rem 3rem;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-headline {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-gradient {
+            background: var(--gradient-prism);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Bilingual Layout */
+        .bilingual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .lang-column {
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            border: 2px solid var(--n-200);
+        }
+
+        .lang-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--ultraviolet);
+            margin-bottom: 1rem;
+        }
+
+        /* Do's and Don'ts */
+        .do-dont-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .do-dont-card {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid;
+        }
+
+        .do-dont-card.do {
+            border-color: var(--success);
+        }
+
+        .do-dont-card.dont {
+            border-color: var(--error);
+        }
+
+        .do-dont-visual {
+            padding: 3rem;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--n-100);
+        }
+
+        .do-dont-label {
+            padding: 1rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .do-dont-card.do .do-dont-label {
+            background: var(--success);
+            color: white;
+        }
+
+        .do-dont-card.dont .do-dont-label {
+            background: var(--error);
+            color: white;
+        }
+
+        .do-dont-desc {
+            padding: 1rem;
+            background: white;
+            font-size: 0.875rem;
+            color: var(--neutral-dark);
+        }
+
+        /* Print Styles */
+        @media print {
+            .cover {
+                page-break-after: always;
+            }
+            .section {
+                page-break-inside: avoid;
+            }
+            body {
+                background: white;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .logo-display { font-size: 3.5rem; }
+            .voice-grid,
+            .bilingual-grid,
+            .do-dont-grid {
+                grid-template-columns: 1fr;
+            }
+            .section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        .stat-highlight {
+            font-family: var(--font-mono);
+            color: var(--electric-cyan);
+            font-weight: 600;
+        }
+
+        .inline-gradient {
+            background: var(--gradient-prism);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .feature-list li {
+            padding: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--ultraviolet);
+            font-weight: 700;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.875rem;
+        }
+
+        th {
+            background: var(--ultraviolet);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-family: var(--font-display);
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--n-200);
+        }
+
+        tr:hover {
+            background: var(--n-100);
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background: rgba(123, 47, 247, 0.1);
+            padding: 0.125rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.875em;
+            color: var(--ultraviolet);
+        }
+    </style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+    <div class="cover-content">
+        <div class="logo-display">AXIOM</div>
+        <div class="tagline">Build. Deploy. Train.</div>
+        <p style="color: var(--neutral-light); max-width: 600px; font-size: 1.125rem; line-height: 1.6;">
+            The AI operating system for financial services.<br>
+            Official Brand Guidelines & Design System
+        </p>
+        <div class="confidential">
+            CONFIDENTIAL — FOR INTERNAL & PARTNER USE ONLY
+        </div>
+        <div class="cover-meta">
+            Version 1.0 — April 2026<br>
+            Founded by Val Infante<br>
+            Brand System by Axiom
+        </div>
+    </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<section class="section tinted">
+    <h2 class="section-title">Table of Contents</h2>
+    <p class="section-subtitle">Navigate the Axiom brand system</p>
+
+    <div class="toc">
+        <a href="#story" class="toc-item">
+            <div class="toc-number">01</div>
+            <div class="toc-title">Brand Story & Purpose</div>
+            <div class="toc-desc">Why we exist and what we believe</div>
+        </a>
+        <a href="#positioning" class="toc-item">
+            <div class="toc-number">02</div>
+            <div class="toc-title">Brand Positioning</div>
+            <div class="toc-desc">Market position and value proposition</div>
+        </a>
+        <a href="#naming" class="toc-item">
+            <div class="toc-number">03</div>
+            <div class="toc-title">Naming & Tagline</div>
+            <div class="toc-desc">Name rationale and bilingual usage</div>
+        </a>
+        <a href="#logo" class="toc-item">
+            <div class="toc-number">04</div>
+            <div class="toc-title">Logo System</div>
+            <div class="toc-desc">Wordmark specs and usage rules</div>
+        </a>
+        <a href="#color" class="toc-item">
+            <div class="toc-number">05</div>
+            <div class="toc-title">Color System</div>
+            <div class="toc-desc">Unicorn palette and gradient signatures</div>
+        </a>
+        <a href="#typography" class="toc-item">
+            <div class="toc-number">06</div>
+            <div class="toc-title">Typography</div>
+            <div class="toc-desc">Type hierarchy and pairing rules</div>
+        </a>
+        <a href="#voice" class="toc-item">
+            <div class="toc-number">07</div>
+            <div class="toc-title">Tone of Voice</div>
+            <div class="toc-desc">How we speak and write</div>
+        </a>
+        <a href="#imagery" class="toc-item">
+            <div class="toc-number">08</div>
+            <div class="toc-title">Photography & Imagery</div>
+            <div class="toc-desc">Visual style and content guidelines</div>
+        </a>
+        <a href="#ui" class="toc-item">
+            <div class="toc-number">09</div>
+            <div class="toc-title">UI Components</div>
+            <div class="toc-desc">Buttons, cards, and interface elements</div>
+        </a>
+        <a href="#applications" class="toc-item">
+            <div class="toc-number">10</div>
+            <div class="toc-title">Application Examples</div>
+            <div class="toc-desc">Real-world brand applications</div>
+        </a>
+        <a href="#bilingual" class="toc-item">
+            <div class="toc-number">11</div>
+            <div class="toc-title">Bilingual Guidelines</div>
+            <div class="toc-desc">English/Spanish usage framework</div>
+        </a>
+        <a href="#team" class="toc-item">
+            <div class="toc-number">12</div>
+            <div class="toc-title">Founding Team</div>
+            <div class="toc-desc">The operators behind Axiom</div>
+        </a>
+        <a href="#dos-donts" class="toc-item">
+            <div class="toc-number">13</div>
+            <div class="toc-title">Do's & Don'ts</div>
+            <div class="toc-desc">Visual usage rules and violations</div>
+        </a>
+    </div>
+</section>
+
+<!-- 01: BRAND STORY & PURPOSE -->
+<section id="story" class="section dark">
+    <h2 class="section-title">Brand Story & Purpose</h2>
+    <p class="section-subtitle">Why Axiom exists</p>
+
+    <div style="max-width: 800px;">
+        <h3 style="color: var(--electric-cyan); margin-top: 2rem;">The Origin Story</h3>
+        <p style="font-size: 1.125rem; line-height: 1.8; color: var(--neutral-light);">
+            Axiom was founded by <span class="stat-highlight">Val Infante</span>, a fintech operator who scaled MyBambu to over <span class="stat-highlight">1M+ immigrant accounts</span> and served as Chief Growth Officer at Payphone, overseeing <span class="stat-highlight">$309M in transaction volume</span> and <span class="stat-highlight">700K+ users</span> across LATAM.
+        </p>
+        <p style="font-size: 1.125rem; line-height: 1.8; color: var(--neutral-light);">
+            After years building financial products for underserved communities — from cross-border payments to embedded banking for immigrants — Val saw a pattern: <strong>financial institutions are drowning in operational complexity while AI sits on the sidelines as a buzzword, not a business weapon.</strong>
+        </p>
+        <p style="font-size: 1.125rem; line-height: 1.8; color: var(--neutral-light);">
+            Axiom was built to change that. We don't just advise. We <span class="inline-gradient">build, deploy, and train</span> AI agents and automation systems that financial services companies can actually use — today, not in some theoretical future.
+        </p>
+
+        <h3 style="color: var(--hot-pink); margin-top: 3rem;">Mission</h3>
+        <p style="font-size: 1.25rem; font-weight: 600; color: white; line-height: 1.6;">
+            Transform financial services through AI agents, automation, and training that makes every team faster, smarter, and more human.
+        </p>
+
+        <h3 style="color: var(--solar-yellow); margin-top: 3rem;">Vision</h3>
+        <p style="font-size: 1.25rem; font-weight: 600; color: white; line-height: 1.6;">
+            A world where every financial institution — from $1B banks to $10M fintechs — operates with the precision and speed of AI, while every employee has an AI copilot that makes them unstoppable.
+        </p>
+
+        <h3 style="color: var(--electric-cyan); margin-top: 3rem;">Core Beliefs</h3>
+        <ul class="feature-list" style="color: var(--neutral-light); font-size: 1.125rem;">
+            <li><strong>AI is not a feature. It's an operating system.</strong> The companies that win won't add AI to their workflows — they'll rebuild their workflows around AI.</li>
+            <li><strong>Operational credibility matters.</strong> We've been inside the machine. We know what actually breaks at scale.</li>
+            <li><strong>Training is as critical as technology.</strong> The best AI agent is useless if your team doesn't know how to work with it.</li>
+            <li><strong>Fintech + LATAM is the future.</strong> The next generation of financial innovation won't come from Silicon Valley alone. It's happening in São Paulo, Mexico City, Bogotá, and Miami.</li>
+            <li><strong>Underserved communities deserve world-class tech.</strong> The immigrant sending money home should have AI-powered fraud protection. The small business owner in Ecuador should have AI-driven insights. Technology is not a luxury for the wealthy.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- 02: BRAND POSITIONING -->
+<section id="positioning" class="section light">
+    <h2 class="section-title">Brand Positioning</h2>
+    <p class="section-subtitle">Where we compete and how we win</p>
+
+    <div style="max-width: 900px;">
+        <h3>Positioning Statement</h3>
+        <div style="padding: 2rem; background: var(--gradient-prism); border-radius: 12px; margin: 2rem 0;">
+            <p style="font-size: 1.25rem; font-weight: 600; color: white; line-height: 1.7;">
+                For <strong>financial services companies and growth-stage fintechs</strong> that need AI embedded into their operations — not bolted on as an afterthought — <strong>Axiom</strong> is the AI transformation firm that builds, deploys, and trains agentic systems across compliance, customer care, operations, finance, and marketing. Unlike traditional consultants who advise from the outside, we've scaled billion-dollar fintech operations, so we build AI that actually works in production.
+            </p>
+        </div>
+
+        <h3 style="margin-top: 3rem;">Value Proposition Hierarchy</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>Proposition</th>
+                    <th>Proof Point</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Functional</strong></td>
+                    <td>We build AI agents that automate compliance, customer support, operations, finance, and marketing for financial services.</td>
+                    <td>6 service lines: Compliance AI, Customer Care AI, Operations AI, Finance AI, Marketing AI, AI Training</td>
+                </tr>
+                <tr>
+                    <td><strong>Emotional</strong></td>
+                    <td>You get to sleep at night knowing your AI systems won't break in production, because they were built by people who've been inside billion-dollar fintech operations.</td>
+                    <td>Co-founders scaled MyBambu (1.2M+ accounts, $3B+ money moved) and Payphone ($309M TPV, 700K+ users). CCO mitigated $10M+ in regulatory risk.</td>
+                </tr>
+                <tr>
+                    <td><strong>Aspirational</strong></td>
+                    <td>You become the financial institution that leads with AI, not follows. Your team becomes faster, smarter, and more confident.</td>
+                    <td>Training embedded in every engagement — we don't just deploy, we upskill your entire organization</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="margin-top: 3rem;">Competitive Differentiation</h3>
+        <div class="voice-grid">
+            <div class="card">
+                <h4 style="color: var(--ultraviolet);">Traditional AI Consultants</h4>
+                <p style="color: var(--neutral-mid); margin-bottom: 1rem;">Big 4 firms, boutique AI agencies</p>
+                <p><strong>They say:</strong> "Here's a strategic roadmap for AI transformation."</p>
+                <p><strong>We say:</strong> "Here's your AI agent, running in production, with your team trained to use it."</p>
+            </div>
+            <div class="card">
+                <h4 style="color: var(--hot-pink);">AI Product Platforms</h4>
+                <p style="color: var(--neutral-mid); margin-bottom: 1rem;">Off-the-shelf chatbot/automation SaaS</p>
+                <p><strong>They say:</strong> "Buy our platform and configure it yourself."</p>
+                <p><strong>We say:</strong> "We build custom agents that integrate into your exact workflow, then train your people."</p>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 3rem;">White Space We Own</h3>
+        <p style="font-size: 1.125rem; line-height: 1.8;">
+            We operate at the intersection of <span class="inline-gradient">fintech operational expertise</span>, <span class="inline-gradient">AI systems engineering</span>, and <span class="inline-gradient">LATAM market fluency</span>. No consultant brings all three. No AI platform understands financial services operations at scale. No fintech operator has built their own AI transformation practice — except us.
+        </p>
+    </div>
+</section>
+
+<!-- 03: NAMING & TAGLINE -->
+<section id="naming" class="section tinted">
+    <h2 class="section-title">Naming & Tagline</h2>
+    <p class="section-subtitle">The rationale behind Axiom</p>
+
+    <div style="max-width: 800px;">
+        <h3>Name: <span style="font-family: var(--font-display); font-weight: 800; color: var(--ultraviolet);">AXIOM</span></h3>
+
+        <h4 style="margin-top: 2rem;">Why "Axiom"</h4>
+        <ul class="feature-list">
+            <li><strong>Definition:</strong> A statement or principle that is regarded as being established, accepted, or self-evidently true.</li>
+            <li><strong>Connotation:</strong> Mathematical precision. Fundamental truth. The building blocks of logic.</li>
+            <li><strong>Brand fit:</strong> AI agents are built on axioms — rules, logic, and systems thinking. Financial services demand axiom-level reliability.</li>
+            <li><strong>Memorability:</strong> Short, sharp, distinct. Not generic "AI Solutions" or "Tech Partners."</li>
+            <li><strong>Cultural neutrality:</strong> Works equally well in English and Spanish-speaking markets. No awkward translations.</li>
+        </ul>
+
+        <h4 style="margin-top: 2rem;">Why One Word — No Suffix</h4>
+        <ul class="feature-list">
+            <li><strong>Maximum confidence:</strong> One word. No ".AI", no "Labs", no "Studio." The brand speaks for itself — like Stripe, like Figma, like Tesla.</li>
+            <li><strong>Category transcendence:</strong> Dropping "AI" avoids pigeonholing the brand as just another AI company. Axiom is an operating system for financial services — AI is the means, not the identity.</li>
+            <li><strong>Domain flexibility:</strong> axiom.ai, getaxiom.com, axiomhq.com — the one-word name works with any TLD.</li>
+            <li><strong>Unicorn energy:</strong> The most iconic companies are one word. Axiom joins that tier from day one.</li>
+        </ul>
+
+        <h3 style="margin-top: 3rem;">Taglines</h3>
+
+        <div class="bilingual-grid">
+            <div class="lang-column">
+                <div class="lang-label">English (Primary)</div>
+                <h4 style="font-size: 1.75rem; font-weight: 800; color: var(--ultraviolet); margin-bottom: 1rem;">Build. Deploy. Train.</h4>
+                <p style="color: var(--neutral-dark);">
+                    Three-word precision that describes exactly what we do. Not "transform your business" or "unlock potential" — we build agents, deploy them into production, and train your team to use them.
+                </p>
+            </div>
+            <div class="lang-column">
+                <div class="lang-label">Spanish (Secondary)</div>
+                <h4 style="font-size: 1.75rem; font-weight: 800; color: var(--hot-pink); margin-bottom: 1rem;">Construye. Despliega. Entrena.</h4>
+                <p style="color: var(--neutral-dark);">
+                    Direct Spanish translation that maintains the rhythm and parallel structure. Strong verbs that convey action and outcomes.
+                </p>
+            </div>
+        </div>
+
+        <h4 style="margin-top: 3rem;">Secondary Tagline (Descriptive)</h4>
+        <div style="padding: 1.5rem; background: white; border-left: 4px solid var(--electric-cyan); border-radius: 4px; margin: 1rem 0;">
+            <p style="font-size: 1.125rem; font-weight: 600; color: var(--n-900);">
+                <strong>English:</strong> The AI operating system for financial services
+            </p>
+        </div>
+        <div style="padding: 1.5rem; background: white; border-left: 4px solid var(--solar-yellow); border-radius: 4px; margin: 1rem 0;">
+            <p style="font-size: 1.125rem; font-weight: 600; color: var(--n-900);">
+                <strong>Spanish:</strong> El sistema operativo de IA para servicios financieros
+            </p>
+        </div>
+
+        <h4 style="margin-top: 3rem;">Usage Guidelines</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Context</th>
+                    <th>Tagline Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Website hero</td>
+                    <td>Primary tagline + secondary descriptor</td>
+                </tr>
+                <tr>
+                    <td>Pitch deck</td>
+                    <td>Primary tagline on cover, descriptor on positioning slide</td>
+                </tr>
+                <tr>
+                    <td>LinkedIn banner</td>
+                    <td>Primary tagline only</td>
+                </tr>
+                <tr>
+                    <td>Email signature</td>
+                    <td>Secondary descriptor only (primary too casual)</td>
+                </tr>
+                <tr>
+                    <td>Business card</td>
+                    <td>Primary tagline (bilingual optional)</td>
+                </tr>
+                <tr>
+                    <td>LATAM-specific materials</td>
+                    <td>Spanish primary tagline</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- 04: LOGO SYSTEM -->
+<section id="logo" class="section dark">
+    <h2 class="section-title">Logo System</h2>
+    <p class="section-subtitle">Wordmark specifications and usage rules</p>
+
+    <div style="max-width: 1000px;">
+        <h3 style="color: var(--electric-cyan);">Primary Wordmark</h3>
+        <p style="color: var(--neutral-light); font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">
+            The Axiom logo is a <strong>wordmark-only system</strong> — no icon, no symbol. The typography IS the brand identity. The wordmark uses <strong>Montserrat ExtraBold (800 weight)</strong> with tight letter-spacing and a signature gradient treatment.
+        </p>
+
+        <div class="logo-showcase">
+            <div class="logo-example on-dark">
+                <div class="logo-text gradient">AXIOM</div>
+                <div class="logo-caption" style="color: var(--neutral-mid);">Primary — Gradient (Prism)<br>Use on dark backgrounds</div>
+            </div>
+            <div class="logo-example on-light">
+                <div class="logo-text dark">AXIOM</div>
+                <div class="logo-caption">Secondary — Midnight<br>Use on light backgrounds</div>
+            </div>
+            <div class="logo-example on-dark">
+                <div class="logo-text white">AXIOM</div>
+                <div class="logo-caption" style="color: var(--neutral-mid);">Tertiary — White<br>Use on dark photography/video</div>
+            </div>
+        </div>
+
+        <h3 style="color: var(--hot-pink); margin-top: 4rem;">Gradient Treatment Specifications</h3>
+        <div style="background: white; padding: 2rem; border-radius: 12px; margin: 2rem 0; color: var(--n-900);">
+            <h4 style="color: var(--ultraviolet);">CSS Implementation</h4>
+            <pre style="background: var(--n-100); padding: 1.5rem; border-radius: 8px; overflow-x: auto; font-family: var(--font-mono); font-size: 0.875rem; line-height: 1.6;"><code>font-family: 'Montserrat', sans-serif;
+font-weight: 800;
+letter-spacing: -0.02em;
+background: linear-gradient(135deg, #7B2FF7, #FF2D87, #00E5FF);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;</code></pre>
+
+            <h4 style="color: var(--hot-pink); margin-top: 2rem;">Print/Export Specifications</h4>
+            <ul style="list-style: none; margin-top: 1rem;">
+                <li style="padding: 0.5rem 0;"><strong>RGB Values:</strong> Ultraviolet (123, 47, 247) → Hot Pink (255, 45, 135) → Electric Cyan (0, 229, 255)</li>
+                <li style="padding: 0.5rem 0;"><strong>CMYK Approximation:</strong> Consult with print vendor for best gradient reproduction</li>
+                <li style="padding: 0.5rem 0;"><strong>Gradient Angle:</strong> 135° (diagonal, bottom-left to top-right)</li>
+            </ul>
+        </div>
+
+        <h3 style="color: var(--solar-yellow); margin-top: 4rem;">Size & Spacing</h3>
+        <div class="voice-grid">
+            <div style="background: rgba(123, 47, 247, 0.1); padding: 2rem; border-radius: 12px;">
+                <h4 style="color: white;">Minimum Size</h4>
+                <p style="color: var(--neutral-light);"><strong>Digital:</strong> 120px width minimum</p>
+                <p style="color: var(--neutral-light);"><strong>Print:</strong> 1.5 inches / 3.8cm width minimum</p>
+                <p style="color: var(--neutral-mid); font-size: 0.875rem; margin-top: 1rem;">Below these sizes, gradient may not render clearly. Use solid color fallback (Ultraviolet or Midnight).</p>
+            </div>
+            <div style="background: rgba(255, 45, 135, 0.1); padding: 2rem; border-radius: 12px;">
+                <h4 style="color: white;">Clear Space</h4>
+                <p style="color: var(--neutral-light);">Minimum clear space on all sides: <strong>height of the letter "A"</strong></p>
+                <p style="color: var(--neutral-mid); font-size: 0.875rem; margin-top: 1rem;">No text, graphics, or other elements should enter this protected zone.</p>
+            </div>
+        </div>
+
+        <h3 style="color: var(--electric-cyan); margin-top: 4rem;">Logo Don'ts</h3>
+        <div class="do-dont-grid">
+            <div class="do-dont-card dont">
+                <div class="do-dont-visual">
+                    <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--n-700); transform: rotate(-5deg);">AXIOM</div>
+                </div>
+                <div class="do-dont-label">DON'T</div>
+                <div class="do-dont-desc">Never rotate or skew the wordmark</div>
+            </div>
+            <div class="do-dont-card dont">
+                <div class="do-dont-visual">
+                    <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: #FF6400;">AXIOM</div>
+                </div>
+                <div class="do-dont-label">DON'T</div>
+                <div class="do-dont-desc">Never use colors outside the approved palette (e.g., orange, green, red)</div>
+            </div>
+            <div class="do-dont-card dont">
+                <div class="do-dont-visual">
+                    <div style="font-family: Arial, sans-serif; font-size: 2rem; font-weight: 700; color: var(--n-700);">AXIOM</div>
+                </div>
+                <div class="do-dont-label">DON'T</div>
+                <div class="do-dont-desc">Never use a different typeface. Always Montserrat ExtraBold (800).</div>
+            </div>
+            <div class="do-dont-card dont">
+                <div class="do-dont-visual">
+                    <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 800; background: var(--gradient-prism); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; opacity: 0.3;">AXIOM</div>
+                </div>
+                <div class="do-dont-label">DON'T</div>
+                <div class="do-dont-desc">Never reduce opacity below 100% on gradient version</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 05: COLOR SYSTEM -->
+<section id="color" class="section light">
+    <h2 class="section-title">Color System</h2>
+    <p class="section-subtitle">The unicorn palette that makes us unmistakable</p>
+
+    <div style="max-width: 1000px;">
+        <h3>Core Colors</h3>
+        <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">
+            Axiom uses a <strong>high-chroma, culturally bold palette</strong> that breaks free from the navy-and-gray fintech cliché. This is a unicorn palette — vivid, confident, and impossible to ignore. It combines the precision of tech with the expressive warmth of LATAM visual culture.
+        </p>
+
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background: var(--ultraviolet); color: white;">#7B2FF7</div>
+                <div class="color-info">
+                    <div class="color-name">Ultraviolet</div>
+                    <div class="color-values">
+                        HEX: #7B2FF7<br>
+                        RGB: 123, 47, 247<br>
+                        HSL: 259°, 92%, 58%<br>
+                        <strong>Primary brand anchor</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-swatch" style="background: var(--hot-pink); color: white;">#FF2D87</div>
+                <div class="color-info">
+                    <div class="color-name">Hot Pink</div>
+                    <div class="color-values">
+                        HEX: #FF2D87<br>
+                        RGB: 255, 45, 135<br>
+                        HSL: 334°, 100%, 59%<br>
+                        <strong>Energy & boldness</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-swatch" style="background: var(--electric-cyan); color: var(--midnight);">#00E5FF</div>
+                <div class="color-info">
+                    <div class="color-name">Electric Cyan</div>
+                    <div class="color-values">
+                        HEX: #00E5FF<br>
+                        RGB: 0, 229, 255<br>
+                        HSL: 186°, 100%, 50%<br>
+                        <strong>Tech intelligence</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-swatch" style="background: var(--solar-yellow); color: var(--midnight);">#FFD600</div>
+                <div class="color-info">
+                    <div class="color-name">Solar Yellow</div>
+                    <div class="color-values">
+                        HEX: #FFD600<br>
+                        RGB: 255, 214, 0<br>
+                        HSL: 50°, 100%, 50%<br>
+                        <strong>Accent & highlights</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="color-card">
+                <div class="color-swatch" style="background: var(--midnight); color: white;">#0D0221</div>
+                <div class="color-info">
+                    <div class="color-name">Midnight</div>
+                    <div class="color-values">
+                        HEX: #0D0221<br>
+                        RGB: 13, 2, 33<br>
+                        HSL: 251°, 88%, 7%<br>
+                        <strong>Dark base</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 4rem;">Signature Gradients</h3>
+        <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">
+            Gradients are not decoration — they are <strong>brand signatures</strong>. Each gradient has a specific emotional and functional purpose.
+        </p>
+
+        <div class="gradient-swatch" style="background: var(--gradient-prism);">
+            Prism — Hero Moments
+        </div>
+        <p style="color: var(--neutral-mid); margin-bottom: 2rem;">
+            <code>linear-gradient(135deg, #7B2FF7, #FF2D87, #00E5FF)</code><br>
+            <strong>Use for:</strong> Logo, hero headlines, primary CTAs, major announcements
+        </p>
+
+        <div class="gradient-swatch" style="background: var(--gradient-aurora);">
+            Aurora — Tech Forward
+        </div>
+        <p style="color: var(--neutral-mid); margin-bottom: 2rem;">
+            <code>linear-gradient(135deg, #7B2FF7, #00E5FF)</code><br>
+            <strong>Use for:</strong> Product UI, dashboards, data visualizations, technical content
+        </p>
+
+        <div class="gradient-swatch" style="background: var(--gradient-sunset);">
+            Sunset — Warm Energy
+        </div>
+        <p style="color: var(--neutral-mid); margin-bottom: 2rem;">
+            <code>linear-gradient(135deg, #FF2D87, #FFD600)</code><br>
+            <strong>Use for:</strong> Stats, metrics, wins, celebratory moments, LATAM-specific content
+        </p>
+
+        <div class="gradient-swatch" style="background: var(--gradient-spectrum);">
+            Full Spectrum — Special Occasions
+        </div>
+        <p style="color: var(--neutral-mid); margin-bottom: 2rem;">
+            <code>linear-gradient(135deg, #FF2D87, #7B2FF7, #00E5FF, #FFD600)</code><br>
+            <strong>Use for:</strong> Launch moments, fundraising announcements, major milestones only
+        </p>
+
+        <h3 style="margin-top: 4rem;">Color Usage Ratios</h3>
+        <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">
+            Balance creates impact. Use this ratio across any multi-page document or website section:
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Color</th>
+                    <th>Target Ratio</th>
+                    <th>Usage Context</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Ultraviolet</strong></td>
+                    <td>40%</td>
+                    <td>Dominant brand color — headlines, key CTAs, primary UI elements</td>
+                </tr>
+                <tr>
+                    <td><strong>Hot Pink</strong></td>
+                    <td>20%</td>
+                    <td>Secondary accents — subheadings, badges, hover states</td>
+                </tr>
+                <tr>
+                    <td><strong>Electric Cyan</strong></td>
+                    <td>15%</td>
+                    <td>Tech elements — data points, icons, links</td>
+                </tr>
+                <tr>
+                    <td><strong>Solar Yellow</strong></td>
+                    <td>5%</td>
+                    <td>Sparingly — highlights, alerts, special callouts</td>
+                </tr>
+                <tr>
+                    <td><strong>Midnight + Neutrals</strong></td>
+                    <td>20%</td>
+                    <td>Backgrounds, body text, containers</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="margin-top: 4rem;">Semantic UI Colors</h3>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background: var(--success); color: white;">#00E676</div>
+                <div class="color-info">
+                    <div class="color-name">Success</div>
+                    <div class="color-values">
+                        Use for confirmations, completed states, positive metrics
+                    </div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background: var(--warning); color: white;">#FFAB00</div>
+                <div class="color-info">
+                    <div class="color-name">Warning</div>
+                    <div class="color-values">
+                        Use for alerts, pending actions, cautionary notes
+                    </div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background: var(--error); color: white;">#FF1744</div>
+                <div class="color-info">
+                    <div class="color-name">Error</div>
+                    <div class="color-values">
+                        Use for errors, critical alerts, destructive actions
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 4rem;">Accessibility & Contrast</h3>
+        <div style="background: var(--n-100); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--ultraviolet);">
+            <h4 style="color: var(--ultraviolet);">WCAG AA Compliance</h4>
+            <p style="margin-bottom: 1rem;">All text/background pairings must meet <strong>WCAG AA minimum contrast ratio of 4.5:1</strong> for body text and 3:1 for large text (18pt+).</p>
+
+            <h5 style="margin-top: 1.5rem; color: var(--neutral-dark);">Approved Text/Background Combinations</h5>
+            <table style="margin-top: 1rem;">
+                <thead>
+                    <tr>
+                        <th>Text Color</th>
+                        <th>Background</th>
+                        <th>Contrast Ratio</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>White</td>
+                        <td>Ultraviolet (#7B2FF7)</td>
+                        <td>6.8:1</td>
+                        <td><span class="badge badge-violet">PASS AA</span></td>
+                    </tr>
+                    <tr>
+                        <td>White</td>
+                        <td>Midnight (#0D0221)</td>
+                        <td>19.2:1</td>
+                        <td><span class="badge badge-violet">PASS AAA</span></td>
+                    </tr>
+                    <tr>
+                        <td>Midnight</td>
+                        <td>Neutral Light (#F4F0FF)</td>
+                        <td>17.5:1</td>
+                        <td><span class="badge badge-violet">PASS AAA</span></td>
+                    </tr>
+                    <tr>
+                        <td>Ultraviolet</td>
+                        <td>White</td>
+                        <td>3.1:1</td>
+                        <td><span class="badge badge-pink">Large text only</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- 06: TYPOGRAPHY -->
+<section id="typography" class="section tinted">
+    <h2 class="section-title">Typography</h2>
+    <p class="section-subtitle">Type hierarchy and pairing rules</p>
+
+    <div style="max-width: 900px;">
+        <h3>Type System Overview</h3>
+        <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">
+            Axiom uses a <strong>three-typeface system</strong> optimized for digital-first applications: <strong>Montserrat</strong> for display and headlines, <strong>Inter</strong> for body text and UI, and <strong>JetBrains Mono</strong> for code, data, and technical content.
+        </p>
+
+        <div class="type-specimen">
+            <div class="type-meta">DISPLAY / HEADLINES — Montserrat ExtraBold 800</div>
+            <h1 style="font-family: var(--font-display); font-weight: 800; margin: 0; background: var(--gradient-prism); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                Build AI that works in production
+            </h1>
+        </div>
+
+        <div class="type-specimen">
+            <div class="type-meta">SUBHEADINGS — Montserrat Bold 700</div>
+            <h2 style="font-family: var(--font-display); font-weight: 700; margin: 0; color: var(--ultraviolet);">
+                Six service lines. One operating system.
+            </h2>
+        </div>
+
+        <div class="type-specimen">
+            <div class="type-meta">SECTION HEADERS — Montserrat SemiBold 600</div>
+            <h3 style="font-family: var(--font-display); font-weight: 600; margin: 0; color: var(--n-900);">
+                Compliance AI, Customer Care AI, Operations AI
+            </h3>
+        </div>
+
+        <div class="type-specimen">
+            <div class="type-meta">BODY TEXT — Inter Regular 400</div>
+            <p style="font-family: var(--font-body); font-weight: 400; margin: 0; color: var(--n-900); font-size: 1rem; line-height: 1.7;">
+                We build AI agents and automation systems that financial services companies can deploy today — not in some theoretical future. Our co-founders scaled MyBambu to 1.2M+ accounts ($3B+ in money moved), served as CGO at Payphone ($309M TPV), and built compliance programs managing 70+ professionals across 50+ state licenses. We don't advise from the outside. We've been inside the machine.
+            </p>
+        </div>
+
+        <div class="type-specimen">
+            <div class="type-meta">BODY EMPHASIS — Inter Medium 500</div>
+            <p style="font-family: var(--font-body); font-weight: 500; margin: 0; color: var(--n-900); font-size: 1rem; line-height: 1.7;">
+                When you need to emphasize key concepts without using bold, Medium weight provides subtle hierarchy while maintaining readability.
+            </p>
+        </div>
+
+        <div class="type-specimen">
+            <div class="type-meta">STRONG EMPHASIS — Inter SemiBold 600</div>
+            <p style="font-family: var(--font-body); font-weight: 600; margin: 0; color: var(--n-900); font-size: 1rem; line-height: 1.7;">
+                For critical callouts, stats, or key takeaways, SemiBold provides strong visual weight while staying within the same type family.
+            </p>
+        </div>
+
+        <div class="type-specimen">
+            <div class="type-meta">CODE / DATA / TECHNICAL — JetBrains Mono Regular 400</div>
+            <pre style="font-family: var(--font-mono); font-weight: 400; margin: 0; color: var(--ultraviolet); font-size: 0.9rem; line-height: 1.6; background: var(--n-100); padding: 1rem; border-radius: 8px;"><code>const agent = new ComplianceAgent({
+  model: "claude-opus-4",
+  context: "KYC verification",
+  threshold: 0.95
+});</code></pre>
+        </div>
+
+        <h3 style="margin-top: 4rem;">Type Scale (Digital)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>Size</th>
+                    <th>Weight</th>
+                    <th>Line Height</th>
+                    <th>Use Case</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Display XL</td>
+                    <td>56px</td>
+                    <td>Montserrat 800</td>
+                    <td>1.1</td>
+                    <td>Hero headlines, landing pages</td>
+                </tr>
+                <tr>
+                    <td>Display L</td>
+                    <td>40px</td>
+                    <td>Montserrat 800</td>
+                    <td>1.2</td>
+                    <td>Page titles, major sections</td>
+                </tr>
+                <tr>
+                    <td>Heading 1</td>
+                    <td>32px</td>
+                    <td>Montserrat 700</td>
+                    <td>1.2</td>
+                    <td>Section headings</td>
+                </tr>
+                <tr>
+                    <td>Heading 2</td>
+                    <td>24px</td>
+                    <td>Montserrat 700</td>
+                    <td>1.3</td>
+                    <td>Subsection headings</td>
+                </tr>
+                <tr>
+                    <td>Heading 3</td>
+                    <td>20px</td>
+                    <td>Montserrat 600</td>
+                    <td>1.4</td>
+                    <td>Card titles, component headers</td>
+                </tr>
+                <tr>
+                    <td>Body Large</td>
+                    <td>18px</td>
+                    <td>Inter 400</td>
+                    <td>1.7</td>
+                    <td>Intro paragraphs, pull quotes</td>
+                </tr>
+                <tr>
+                    <td>Body</td>
+                    <td>16px</td>
+                    <td>Inter 400</td>
+                    <td>1.6</td>
+                    <td>Standard body text</td>
+                </tr>
+                <tr>
+                    <td>Body Small</td>
+                    <td>14px</td>
+                    <td>Inter 400</td>
+                    <td>1.6</td>
+                    <td>Captions, labels, secondary info</td>
+                </tr>
+                <tr>
+                    <td>Code</td>
+                    <td>14px</td>
+                    <td>JetBrains Mono 400</td>
+                    <td>1.6</td>
+                    <td>Code snippets, technical data</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="margin-top: 4rem;">Pairing Rules</h3>
+        <div class="voice-grid">
+            <div class="voice-card do">
+                <div class="voice-label">DO</div>
+                <p><strong>Pair Montserrat headlines with Inter body text.</strong> This creates clear hierarchy and maintains readability.</p>
+                <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--neutral-dark);">Example: "Build AI Agents" (Montserrat 800) → "We deploy production-ready systems for financial services" (Inter 400)</p>
+            </div>
+            <div class="voice-card do">
+                <div class="voice-label">DO</div>
+                <p><strong>Use JetBrains Mono for all technical content.</strong> Code, API endpoints, data tables, technical specs.</p>
+                <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--neutral-dark);">Example: <code>POST /api/v1/agents</code> or TPV: $309M</p>
+            </div>
+            <div class="voice-card dont">
+                <div class="voice-label">DON'T</div>
+                <p><strong>Never use Montserrat for body text.</strong> It's designed for display sizes only. Long paragraphs in Montserrat are hard to read.</p>
+            </div>
+            <div class="voice-card dont">
+                <div class="voice-label">DON'T</div>
+                <p><strong>Never mix more than 3 typefaces.</strong> Stick to Montserrat + Inter + JetBrains Mono. No Arial, no Times New Roman, no Georgia.</p>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 4rem;">Google Fonts Import</h3>
+        <div style="background: var(--midnight); padding: 2rem; border-radius: 12px; color: var(--neutral-light);">
+            <pre style="font-family: var(--font-mono); font-size: 0.875rem; line-height: 1.6; color: var(--electric-cyan);"><code>&lt;link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"&gt;</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- 07: TONE OF VOICE -->
+<section id="voice" class="section dark">
+    <h2 class="section-title">Tone of Voice</h2>
+    <p class="section-subtitle">How Axiom speaks and writes</p>
+
+    <div style="max-width: 900px;">
+        <h3 style="color: var(--electric-cyan);">Brand Personality</h3>
+        <p style="font-size: 1.125rem; line-height: 1.8; color: var(--neutral-light); margin-bottom: 2rem;">
+            Axiom's voice is <strong>operationally credible, technically precise, unflinchingly direct, globally fluent, and unapologetically ambitious.</strong> We sound like the operator who's been in the trenches — because we have been.
+        </p>
+
+        <div class="voice-grid">
+            <div class="card">
+                <h4 style="color: var(--ultraviolet);">1. Operationally Credible</h4>
+                <p style="color: var(--neutral-dark); margin-top: 1rem;">
+                    We've scaled real products to real users. We speak in TPV, accounts, conversion rates — not buzzwords.
+                </p>
+                <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.875rem; color: var(--success);">
+                    <strong>DO:</strong> "We scaled MyBambu to 1M+ accounts."
+                </p>
+                <p style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.875rem; color: var(--error);">
+                    <strong>DON'T:</strong> "We help companies grow."
+                </p>
+            </div>
+
+            <div class="card">
+                <h4 style="color: var(--hot-pink);">2. Technically Precise</h4>
+                <p style="color: var(--neutral-dark); margin-top: 1rem;">
+                    We call things what they are. AI agents, not "smart assistants." LLMs, not "intelligent systems." Agentic workflows, not "automation magic."
+                </p>
+                <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.875rem; color: var(--success);">
+                    <strong>DO:</strong> "We build Claude-powered AI agents for KYC compliance."
+                </p>
+                <p style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.875rem; color: var(--error);">
+                    <strong>DON'T:</strong> "We leverage cutting-edge AI to transform workflows."
+                </p>
+            </div>
+
+            <div class="card">
+                <h4 style="color: var(--electric-cyan);">3. Unflinchingly Direct</h4>
+                <p style="color: var(--neutral-dark); margin-top: 1rem;">
+                    No corporate jargon. No hedging. We say what we mean. If something doesn't work, we say it doesn't work.
+                </p>
+                <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.875rem; color: var(--success);">
+                    <strong>DO:</strong> "Most AI consultants give you a roadmap. We give you working code."
+                </p>
+                <p style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.875rem; color: var(--error);">
+                    <strong>DON'T:</strong> "We partner with you on your AI journey."
+                </p>
+            </div>
+
+            <div class="card">
+                <h4 style="color: var(--solar-yellow);">4. Globally Fluent</h4>
+                <p style="color: var(--neutral-dark); margin-top: 1rem;">
+                    We operate bilingually (English/Spanish) and understand US + LATAM market nuances. We don't translate — we adapt.
+                </p>
+                <p style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.875rem; color: var(--success);">
+                    <strong>DO:</strong> "We know what breaks when you scale cross-border payments in LATAM."
+                </p>
+                <p style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.875rem; color: var(--error);">
+                    <strong>DON'T:</strong> "We have international experience."
+                </p>
+            </div>
+        </div>
+
+        <h3 style="color: var(--hot-pink); margin-top: 4rem;">Tone Spectrum by Context</h3>
+        <p style="color: var(--neutral-light); font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">
+            Our voice stays consistent, but our <strong>tone</strong> shifts based on context and audience.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Context</th>
+                    <th>Tone</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Pitch Deck</strong></td>
+                    <td>Confident, data-driven, ambitious</td>
+                    <td>"$309M TPV. 700K users. 1M+ accounts. We've been inside the machine."</td>
+                </tr>
+                <tr>
+                    <td><strong>Website Hero</strong></td>
+                    <td>Bold, clear, action-oriented</td>
+                    <td>"Build. Deploy. Train. The AI operating system for financial services."</td>
+                </tr>
+                <tr>
+                    <td><strong>Proposal / RFP</strong></td>
+                    <td>Professional, specific, evidence-based</td>
+                    <td>"We'll deploy a Claude-powered compliance agent that processes KYC docs 10x faster than manual review."</td>
+                </tr>
+                <tr>
+                    <td><strong>LinkedIn / Social</strong></td>
+                    <td>Conversational, sharp, opinionated</td>
+                    <td>"Hot take: Your AI strategy deck is not an AI strategy. Ship code or go home."</td>
+                </tr>
+                <tr>
+                    <td><strong>Training Materials</strong></td>
+                    <td>Clear, supportive, educational</td>
+                    <td>"This agent handles tier-1 support queries. Here's how to review its outputs and flag edge cases."</td>
+                </tr>
+                <tr>
+                    <td><strong>Email Signature</strong></td>
+                    <td>Professional, concise, credible</td>
+                    <td>"Val Infante | Co-Founder & CEO, Axiom | The AI operating system for financial services"</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="color: var(--electric-cyan); margin-top: 4rem;">Vocabulary: Words We Own vs. Words We Avoid</h3>
+
+        <div class="bilingual-grid">
+            <div class="lang-column" style="border-color: var(--success);">
+                <div class="lang-label" style="color: var(--success);">WORDS WE OWN</div>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Agents (not chatbots)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Deploy (not implement)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Operating system (not platform)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Agentic (not automated)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Production (not development)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Train (not onboard)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Build (not create)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Scaled (not grew)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">TPV, accounts, users (metrics)</li>
+                    <li style="padding: 0.5rem 0;">Inside the machine (our POV)</li>
+                </ul>
+            </div>
+            <div class="lang-column" style="border-color: var(--error);">
+                <div class="lang-label" style="color: var(--error);">WORDS WE AVOID</div>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Leverage</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Synergy</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Cutting-edge</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Innovative (unless specific)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Transform (overused)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Journey</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Solution (vague)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Empower (meaningless)</li>
+                    <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--n-200);">Unlock potential</li>
+                    <li style="padding: 0.5rem 0;">Disrupt (cliché)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 style="color: var(--solar-yellow); margin-top: 4rem;">Founder Voice vs. Brand Voice</h3>
+        <p style="color: var(--neutral-light); font-size: 1.125rem; line-height: 1.8; margin-bottom: 1rem;">
+            At the early stage, <strong>the founders ARE the brand.</strong> Val and Pedro's personal voices and credibility are our most important assets. Val leads growth, tech, and client relationships. Pedro leads compliance, regulatory, and risk narratives.
+        </p>
+        <div class="card" style="margin-top: 2rem;">
+            <h4 style="color: var(--ultraviolet);">When Val speaks personally:</h4>
+            <p style="color: var(--neutral-dark); margin-top: 1rem;">
+                "I scaled MyBambu to 1M+ immigrant accounts. I ran growth at Payphone across $309M in TPV. I've been inside the operations that most AI consultants only read about. Now I build AI agents for the companies doing the same work."
+            </p>
+        </div>
+        <div class="card" style="margin-top: 1rem;">
+            <h4 style="color: var(--hot-pink);">When Axiom speaks as a company:</h4>
+            <p style="color: var(--neutral-dark); margin-top: 1rem;">
+                "We build AI agents for financial services. Our co-founders scaled fintech products to 1.2M+ accounts and $3B+ in money movement, while building compliance programs that mitigated $10M+ in regulatory risk. We don't advise from the outside — we've been inside the machine."
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- 08: PHOTOGRAPHY & IMAGERY -->
+<section id="imagery" class="section light">
+    <h2 class="section-title">Photography & Imagery</h2>
+    <p class="section-subtitle">Visual style and content guidelines</p>
+
+    <div style="max-width: 900px;">
+        <h3>Visual Principles</h3>
+        <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">
+            Axiom's visual world is <strong>real, warm, diverse, and technically credible.</strong> We show real people working with real technology — not generic stock photos of people smiling at laptops.
+        </p>
+
+        <div class="voice-grid">
+            <div class="voice-card do">
+                <div class="voice-label">DO</div>
+                <h4 style="color: var(--ultraviolet);">Real People, Real Work</h4>
+                <p>Show actual team members, real clients, real workspaces. Authenticity over perfection.</p>
+            </div>
+            <div class="voice-card do">
+                <div class="voice-label">DO</div>
+                <h4 style="color: var(--ultraviolet);">Warm, Natural Light</h4>
+                <p>Favor natural light, warm tones, golden hour. Avoid harsh fluorescent office lighting.</p>
+            </div>
+            <div class="voice-card do">
+                <div class="voice-label">DO</div>
+                <h4 style="color: var(--ultraviolet);">Diverse, Global</h4>
+                <p>Reflect our US + LATAM markets. Show diverse teams, multiple languages, cross-border contexts.</p>
+            </div>
+            <div class="voice-card do">
+                <div class="voice-label">DO</div>
+                <h4 style="color: var(--ultraviolet);">Technical Credibility</h4>
+                <p>Show actual code, real dashboards, authentic UIs. Not fake screens with lorem ipsum.</p>
+            </div>
+        </div>
+
+        <div class="do-dont-grid" style="margin-top: 3rem;">
+            <div class="do-dont-card dont">
+                <div class="do-dont-visual">
+                    <p style="text-align: center; color: var(--neutral-dark); font-weight: 600;">Generic stock photo:<br>"Diverse team smiling at laptop"</p>
+                </div>
+                <div class="do-dont-label">DON'T</div>
+                <div class="do-dont-desc">Never use obviously staged, sterile stock photography. It signals "we don't have real customers."</div>
+            </div>
+            <div class="do-dont-card do">
+                <div class="do-dont-visual">
+                    <p style="text-align: center; color: var(--neutral-dark); font-weight: 600;">Real photo:<br>Team member reviewing<br>actual AI agent output</p>
+                </div>
+                <div class="do-dont-label">DO</div>
+                <div class="do-dont-desc">Show real work, real tools, real contexts. Even if the lighting isn't perfect, authenticity wins.</div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 4rem;">Color Treatment for Photography</h3>
+        <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">
+            When overlaying brand colors on photography, use <strong>gradient overlays at 60-80% opacity</strong> to create depth while maintaining image legibility.
+        </p>
+
+        <div style="background: linear-gradient(135deg, rgba(123, 47, 247, 0.7), rgba(255, 45, 135, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"800\" height=\"400\"><rect fill=\"%23333\" width=\"800\" height=\"400\"/></svg>'); background-size: cover; padding: 4rem; border-radius: 12px; color: white; text-align: center; margin: 2rem 0;">
+            <h3 style="color: white; margin-bottom: 1rem;">Example: Gradient Overlay on Photo</h3>
+            <p style="font-size: 1.125rem;">Text remains legible while brand colors create emotional impact</p>
+        </div>
+
+        <h3 style="margin-top: 4rem;">Illustration Style (When Photos Aren't Available)</h3>
+        <ul class="feature-list">
+            <li><strong>Geometric and abstract</strong> — not illustrative/cartoony</li>
+            <li><strong>Use brand gradients</strong> — Prism, Aurora, Sunset as primary palette</li>
+            <li><strong>Data visualization aesthetic</strong> — think nodes, networks, flows, systems</li>
+            <li><strong>Minimal detail</strong> — clean, modern, not cluttered</li>
+        </ul>
+
+        <h3 style="margin-top: 4rem;">Icon Style</h3>
+        <div class="voice-grid">
+            <div class="card">
+                <h4 style="color: var(--ultraviolet);">Stroke-Based Icons</h4>
+                <p style="color: var(--neutral-dark); margin-top: 1rem;">
+                    Use 2px stroke weight, rounded corners, minimal detail. Think Feather Icons or Heroicons style.
+                </p>
+            </div>
+            <div class="card">
+                <h4 style="color: var(--hot-pink);">Gradient Fills (Sparingly)</h4>
+                <p style="color: var(--neutral-dark); margin-top: 1rem;">
+                    For hero icons or featured elements, apply Prism or Aurora gradients. Use solid Ultraviolet for standard UI icons.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 09: UI COMPONENTS -->
+<section id="ui" class="section dark">
+    <h2 class="section-title">UI Components</h2>
+    <p class="section-subtitle">Buttons, cards, and interface elements</p>
+
+    <div style="max-width: 1000px;">
+        <h3 style="color: var(--electric-cyan);">Button System</h3>
+        <p style="color: var(--neutral-light); font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">
+            Buttons use the brand's gradient system for primary actions and solid/outline styles for secondary and tertiary actions.
+        </p>
+
+        <div class="ui-showcase">
+            <div>
+                <h4 style="color: var(--neutral-light); margin-bottom: 1rem;">Primary Buttons (Gradient)</h4>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn btn-primary">Deploy Agent</button>
+                    <button class="btn btn-primary">Get Started</button>
+                    <button class="btn btn-primary">Book a Demo</button>
+                </div>
+                <p style="color: var(--neutral-mid); font-size: 0.875rem; margin-top: 1rem;">
+                    Use for primary CTAs — main actions you want users to take.
+                </p>
+            </div>
+
+            <div>
+                <h4 style="color: var(--neutral-light); margin-bottom: 1rem;">Secondary Buttons (Outline)</h4>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn btn-secondary">Learn More</button>
+                    <button class="btn btn-secondary">View Pricing</button>
+                    <button class="btn btn-secondary">Contact Us</button>
+                </div>
+                <p style="color: var(--neutral-mid); font-size: 0.875rem; margin-top: 1rem;">
+                    Use for secondary actions — important but not primary CTAs.
+                </p>
+            </div>
+
+            <div>
+                <h4 style="color: var(--neutral-light); margin-bottom: 1rem;">Ghost Buttons (Subtle)</h4>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn btn-ghost">Cancel</button>
+                    <button class="btn btn-ghost">Go Back</button>
+                    <button class="btn btn-ghost">Skip</button>
+                </div>
+                <p style="color: var(--neutral-mid); font-size: 0.875rem; margin-top: 1rem;">
+                    Use for tertiary actions — low-emphasis actions like cancel, skip, back.
+                </p>
+            </div>
+        </div>
+
+        <h3 style="color: var(--hot-pink); margin-top: 4rem;">Card System</h3>
+        <p style="color: var(--neutral-light); font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">
+            Cards are the primary content container for services, features, case studies, and team members.
+        </p>
+
+        <div class="voice-grid">
+            <div class="card">
+                <div class="badge badge-violet">Compliance AI</div>
+                <h4 style="margin-top: 1rem; color: var(--ultraviolet);">KYC & AML Automation</h4>
+                <p style="color: var(--neutral-dark); margin-top: 1rem;">
+                    Deploy AI agents that verify customer identities, flag suspicious transactions, and generate compliance reports in real-time.
+                </p>
+            </div>
+            <div class="card featured">
+                <div class="badge badge-pink">Featured</div>
+                <h4 style="margin-top: 1rem; color: var(--hot-pink);">Customer Care AI</h4>
+                <p style="color: var(--neutral-dark); margin-top: 1rem;">
+                    AI agents that handle tier-1 support queries, route complex cases to humans, and learn from every interaction.
+                </p>
+            </div>
+        </div>
+
+        <h3 style="color: var(--solar-yellow); margin-top: 4rem;">Badge System</h3>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin: 2rem 0;">
+            <span class="badge badge-violet">AI Agents</span>
+            <span class="badge badge-pink">Fintech</span>
+            <span class="badge badge-cyan">LATAM</span>
+            <span class="badge badge-violet">Compliance</span>
+            <span class="badge badge-pink">Operations</span>
+            <span class="badge badge-cyan">Training</span>
+        </div>
+
+        <h3 style="color: var(--electric-cyan); margin-top: 4rem;">Form Elements</h3>
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 3rem 2rem; border-radius: 12px; max-width: 600px;">
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; color: var(--neutral-light); font-weight: 600; margin-bottom: 0.5rem;">Company Name</label>
+                <input type="text" placeholder="Acme Fintech Inc." style="width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--n-700); background: rgba(255, 255, 255, 0.05); border-radius: 8px; color: white; font-family: var(--font-body); font-size: 1rem;">
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; color: var(--neutral-light); font-weight: 600; margin-bottom: 0.5rem;">Service Interest</label>
+                <select style="width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--n-700); background: rgba(255, 255, 255, 0.05); border-radius: 8px; color: white; font-family: var(--font-body); font-size: 1rem;">
+                    <option>Compliance AI</option>
+                    <option>Customer Care AI</option>
+                    <option>Operations AI</option>
+                    <option>Finance AI</option>
+                    <option>Marketing AI</option>
+                    <option>AI Training</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Submit Request</button>
+        </div>
+    </div>
+</section>
+
+<!-- 10: APPLICATION EXAMPLES -->
+<section id="applications" class="section light">
+    <h2 class="section-title">Application Examples</h2>
+    <p class="section-subtitle">Real-world brand applications across touchpoints</p>
+
+    <div style="max-width: 1100px;">
+        <h3>Pitch Deck Slide</h3>
+        <div class="app-example">
+            <div class="slide-mockup">
+                <h1 class="slide-title">$309M in TPV.<br>700K+ Users.<br>1M+ Accounts.</h1>
+                <p style="font-size: 1.25rem; color: var(--neutral-light); line-height: 1.7; max-width: 700px;">
+                    We've been inside billion-dollar fintech operations. Now we build AI agents for the companies doing the same work.
+                </p>
+                <div style="margin-top: 3rem; display: flex; gap: 1rem;">
+                    <span class="badge" style="background: rgba(123, 47, 247, 0.2); color: var(--electric-cyan);">Scaled MyBambu</span>
+                    <span class="badge" style="background: rgba(255, 45, 135, 0.2); color: var(--hot-pink);">CGO at Payphone</span>
+                    <span class="badge" style="background: rgba(0, 229, 255, 0.2); color: var(--solar-yellow);">LATAM Operator</span>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 4rem;">Website Hero Section</h3>
+        <div class="app-example">
+            <div class="hero-mockup">
+                <h1 class="hero-headline">
+                    <span class="hero-gradient">Build. Deploy. Train.</span><br>
+                    The AI operating system for financial services.
+                </h1>
+                <p style="font-size: 1.25rem; color: var(--neutral-light); max-width: 800px; margin: 0 auto 2rem;">
+                    We build AI agents that automate compliance, customer care, operations, finance, and marketing — then train your team to use them.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <button class="btn btn-primary">Book a Demo</button>
+                    <button class="btn btn-secondary" style="border-color: white; color: white;">View Services</button>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 4rem;">Email Signature</h3>
+        <div class="card" style="max-width: 500px;">
+            <p style="font-family: var(--font-body); font-weight: 600; color: var(--n-900); margin-bottom: 0.25rem;">Val Infante</p>
+            <p style="font-family: var(--font-body); color: var(--neutral-mid); margin-bottom: 1rem;">Co-Founder & CEO, Axiom</p>
+            <p style="font-family: var(--font-body); font-size: 0.875rem; color: var(--neutral-dark); line-height: 1.6;">
+                The AI operating system for financial services<br>
+                <a href="https://axiom.ai" style="color: var(--ultraviolet); text-decoration: none;">axiom.ai</a> | <a href="mailto:val@axiom.ai" style="color: var(--ultraviolet); text-decoration: none;">val@axiom.ai</a>
+            </p>
+        </div>
+
+        <div class="card" style="max-width: 500px; margin-top: 1rem;">
+            <p style="font-family: var(--font-body); font-weight: 600; color: var(--n-900); margin-bottom: 0.25rem;">Pedro Infante</p>
+            <p style="font-family: var(--font-body); color: var(--neutral-mid); margin-bottom: 1rem;">Co-Founder & CCO, Axiom</p>
+            <p style="font-family: var(--font-body); font-size: 0.875rem; color: var(--neutral-dark); line-height: 1.6;">
+                The AI operating system for financial services<br>
+                <a href="https://axiom.ai" style="color: var(--ultraviolet); text-decoration: none;">axiom.ai</a> | <a href="mailto:pedro@axiom.ai" style="color: var(--ultraviolet); text-decoration: none;">pedro@axiom.ai</a>
+            </p>
+        </div>
+
+        <h3 style="margin-top: 4rem;">LinkedIn Banner Concept</h3>
+        <div style="background: var(--midnight); padding: 3rem; border-radius: 12px; text-align: center; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--gradient-prism); opacity: 0.15;"></div>
+            <div style="position: relative; z-index: 2;">
+                <h2 style="font-size: 2.5rem; font-weight: 800; background: var(--gradient-prism); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem;">
+                    AXIOM
+                </h2>
+                <p style="color: var(--electric-cyan); font-size: 1.25rem; font-weight: 600;">Build. Deploy. Train.</p>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 4rem;">Business Card Concept</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 800px;">
+            <div style="background: var(--midnight); padding: 2rem; border-radius: 8px; aspect-ratio: 3.5/2; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; background: var(--gradient-prism); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">AXIOM</div>
+                    <div style="color: var(--electric-cyan); font-size: 0.75rem; margin-top: 0.25rem;">Build. Deploy. Train.</div>
+                </div>
+            </div>
+            <div style="background: white; border: 1px solid var(--n-200); padding: 2rem; border-radius: 8px; aspect-ratio: 3.5/2; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <p style="font-weight: 600; color: var(--n-900); margin-bottom: 0.25rem;">Val Infante</p>
+                    <p style="font-size: 0.875rem; color: var(--neutral-mid);">Co-Founder & CEO</p>
+                </div>
+                <div style="font-size: 0.75rem; color: var(--neutral-dark); line-height: 1.6;">
+                    val@axiom.ai<br>
+                    axiom.ai
+                </div>
+            </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 800px; margin-top: 1rem;">
+            <div style="background: var(--midnight); padding: 2rem; border-radius: 8px; aspect-ratio: 3.5/2; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <div style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; background: var(--gradient-prism); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">AXIOM</div>
+                    <div style="color: var(--electric-cyan); font-size: 0.75rem; margin-top: 0.25rem;">Build. Deploy. Train.</div>
+                </div>
+            </div>
+            <div style="background: white; border: 1px solid var(--n-200); padding: 2rem; border-radius: 8px; aspect-ratio: 3.5/2; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <p style="font-weight: 600; color: var(--n-900); margin-bottom: 0.25rem;">Pedro Infante</p>
+                    <p style="font-size: 0.875rem; color: var(--neutral-mid);">Co-Founder & CCO</p>
+                </div>
+                <div style="font-size: 0.75rem; color: var(--neutral-dark); line-height: 1.6;">
+                    pedro@axiom.ai<br>
+                    axiom.ai
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 11: BILINGUAL GUIDELINES -->
+<section id="bilingual" class="section tinted">
+    <h2 class="section-title">Bilingual Guidelines</h2>
+    <p class="section-subtitle">English/Spanish usage framework</p>
+
+    <div style="max-width: 900px;">
+        <h3>Language Strategy</h3>
+        <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">
+            Axiom operates <strong>bilingually</strong> across English and Spanish markets. We are <strong>English-first for brand materials</strong> (website, pitch deck, proposals) but <strong>culturally fluent in Spanish</strong> for LATAM client engagements, social media, and region-specific content.
+        </p>
+
+        <h3 style="margin-top: 3rem;">When to Use Which Language</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Context</th>
+                    <th>Primary Language</th>
+                    <th>Rationale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Website (Global)</strong></td>
+                    <td>English</td>
+                    <td>Primary audience is US-based fintech operators and investors. Spanish version available via toggle.</td>
+                </tr>
+                <tr>
+                    <td><strong>Pitch Deck (Investors)</strong></td>
+                    <td>English</td>
+                    <td>Most VC/investor contexts are English-first, even in LATAM markets.</td>
+                </tr>
+                <tr>
+                    <td><strong>Client Proposals (US)</strong></td>
+                    <td>English</td>
+                    <td>US financial institutions operate in English.</td>
+                </tr>
+                <tr>
+                    <td><strong>Client Proposals (LATAM)</strong></td>
+                    <td>Spanish</td>
+                    <td>LATAM financial institutions prefer Spanish for internal communications.</td>
+                </tr>
+                <tr>
+                    <td><strong>LinkedIn (Val's Profile)</strong></td>
+                    <td>Bilingual (post-by-post)</td>
+                    <td>Mix English and Spanish posts based on topic and audience.</td>
+                </tr>
+                <tr>
+                    <td><strong>Training Materials</strong></td>
+                    <td>Match client language</td>
+                    <td>If the client team operates in Spanish, deliver training in Spanish.</td>
+                </tr>
+                <tr>
+                    <td><strong>Email / DMs</strong></td>
+                    <td>Match recipient language</td>
+                    <td>Mirror the language the prospect/client uses.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 style="margin-top: 3rem;">Translation Guidelines (Not Just Direct Translation)</h3>
+        <p style="font-size: 1.125rem; line-height: 1.8; margin-bottom: 2rem;">
+            We don't translate word-for-word. We <strong>adapt for cultural context.</strong>
+        </p>
+
+        <div class="bilingual-grid">
+            <div class="lang-column">
+                <div class="lang-label">English</div>
+                <h4 style="color: var(--ultraviolet); margin-bottom: 1rem;">Build. Deploy. Train.</h4>
+                <p style="color: var(--neutral-dark);">
+                    Sharp, three-word imperative verbs. Active voice. Command-oriented.
+                </p>
+            </div>
+            <div class="lang-column">
+                <div class="lang-label">Spanish</div>
+                <h4 style="color: var(--hot-pink); margin-bottom: 1rem;">Construye. Despliega. Entrena.</h4>
+                <p style="color: var(--neutral-dark);">
+                    Direct Spanish verbs in imperative form. Maintains parallel structure and rhythm.
+                </p>
+            </div>
+        </div>
+
+        <div class="bilingual-grid" style="margin-top: 2rem;">
+            <div class="lang-column">
+                <div class="lang-label">English</div>
+                <h4 style="color: var(--electric-cyan); margin-bottom: 1rem;">The AI operating system for financial services</h4>
+                <p style="color: var(--neutral-dark);">
+                    Tech-forward framing. "Operating system" signals infrastructure-level thinking.
+                </p>
+            </div>
+            <div class="lang-column">
+                <div class="lang-label">Spanish</div>
+                <h4 style="color: var(--solar-yellow); margin-bottom: 1rem;">El sistema operativo de IA para servicios financieros</h4>
+                <p style="color: var(--neutral-dark);">
+                    Direct translation works here. "Sistema operativo" is culturally understood in tech contexts.
+                </p>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 4rem;">Cultural Considerations</h3>
+        <ul class="feature-list">
+            <li><strong>LATAM is not a monolith.</strong> Mexican Spanish ≠ Colombian Spanish ≠ Argentine Spanish. Vocabulary and tone shift by country. Use neutral LATAM Spanish for broad content; adapt for country-specific engagements.</li>
+            <li><strong>Formality varies by market.</strong> In Mexico and Colombia, business contexts tend to be more formal (usted). In Argentina, voseo is common even in professional settings. Match the client's tone.</li>
+            <li><strong>Tech terminology often stays in English.</strong> "AI agent," "deploy," "API," "LLM" are often used in English even in Spanish conversations. Don't force awkward translations.</li>
+            <li><strong>Numbers and metrics are universal.</strong> "$309M TPV" works equally well in English and Spanish contexts. Lead with data.</li>
+        </ul>
+
+        <h3 style="margin-top: 4rem;">Founder's Language Preference</h3>
+        <p style="font-size: 1.125rem; line-height: 1.8;">
+            Val's primary language preference is <strong>Spanish</strong> for personal communications and internal team contexts. However, the consulting firm operates in <strong>English-first contexts</strong> because most AI/tech content, investor materials, and US fintech clients communicate in English. When engaging with LATAM clients or markets, Val naturally switches to Spanish — not as a translation layer, but as a native operating mode.
+        </p>
+    </div>
+</section>
+
+<!-- 12: FOUNDING TEAM -->
+<section id="team" class="section dark">
+    <h2 class="section-title">Founding Team</h2>
+    <p class="section-subtitle">The operators behind Axiom</p>
+
+    <p style="font-size: 1.125rem; line-height: 1.8; color: var(--neutral-light); max-width: 900px; margin-bottom: 3rem;">
+        Axiom isn't built by consultants who read about fintech. It's built by <strong style="color: var(--electric-cyan);">operators who've scaled billion-dollar platforms</strong>, managed 70+ person compliance teams, and served millions of underbanked users. The founding team brings the rare combination of growth leadership, regulatory expertise, and hands-on AI deployment that no competitor can match.
+    </p>
+
+    <!-- VAL INFANTE -->
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; margin-bottom: 4rem; align-items: start;">
+        <div style="background: rgba(123,47,247,0.08); border: 1px solid rgba(123,47,247,0.2); border-radius: 16px; padding: 2rem; text-align: center;">
+            <div style="width: 120px; height: 120px; border-radius: 50%; background: var(--gradient-prism); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: var(--font-display); font-weight: 800; font-size: 2.5rem; color: white;">VI</span>
+            </div>
+            <h3 style="color: white; margin-bottom: 0.25rem; font-size: 1.5rem;">Val Infante</h3>
+            <p style="color: var(--electric-cyan); font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; margin-bottom: 1rem;">Co-Founder & CEO</p>
+            <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+                <span style="background: rgba(0,229,255,0.1); color: var(--electric-cyan); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-family: var(--font-mono);">Growth</span>
+                <span style="background: rgba(255,45,135,0.1); color: var(--hot-pink); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-family: var(--font-mono);">Technology</span>
+                <span style="background: rgba(255,214,0,0.1); color: var(--solar-yellow); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-family: var(--font-mono);">Operations</span>
+                <span style="background: rgba(123,47,247,0.15); color: var(--ultraviolet); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-family: var(--font-mono);">AI</span>
+            </div>
+        </div>
+        <div>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--neutral-light); margin-bottom: 1.5rem;">
+                Val arrived in the U.S. at age 10 with his family. After early career roles in banking and fundraising at St. Jude Children's Research Hospital (where he helped generate $25M+ through integrated campaigns), he co-founded <strong style="color: white;">MyBambu</strong> — America's #1 fintech serving immigrants — and scaled it from zero to <strong style="color: var(--electric-cyan);">1.2M+ accounts</strong> and <strong style="color: var(--electric-cyan);">$3B+ in total money movement</strong>.
+            </p>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--neutral-light); margin-bottom: 1.5rem;">
+                At MyBambu, Val served simultaneously as CTO, COO, and CMO — building the AWS/Kubernetes infrastructure (99.9% uptime), managing 70+ team members, and achieving a <strong style="color: var(--solar-yellow);">$35 CAC</strong> in an industry where $150-300 is standard. He then joined <strong style="color: white;">Payphone</strong> as Chief Growth Officer, overseeing <strong style="color: var(--electric-cyan);">$309M in TPV</strong> across Ecuador and the US, leading marketing, sales, betting, growth, product, and strategy teams (~35 headcount).
+            </p>
+
+            <h4 style="color: var(--hot-pink); margin-top: 2rem; margin-bottom: 1rem;">Key Metrics</h4>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+                <div style="background: rgba(123,47,247,0.08); border-radius: 12px; padding: 1rem; text-align: center;">
+                    <div style="font-family: var(--font-mono); font-weight: 600; font-size: 1.5rem; background: var(--gradient-sunset); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">1.2M+</div>
+                    <div style="font-size: 0.75rem; color: var(--neutral-mid); margin-top: 0.25rem;">Accounts Opened</div>
+                </div>
+                <div style="background: rgba(123,47,247,0.08); border-radius: 12px; padding: 1rem; text-align: center;">
+                    <div style="font-family: var(--font-mono); font-weight: 600; font-size: 1.5rem; background: var(--gradient-sunset); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">$3B+</div>
+                    <div style="font-size: 0.75rem; color: var(--neutral-mid); margin-top: 0.25rem;">Money Moved</div>
+                </div>
+                <div style="background: rgba(123,47,247,0.08); border-radius: 12px; padding: 1rem; text-align: center;">
+                    <div style="font-family: var(--font-mono); font-weight: 600; font-size: 1.5rem; background: var(--gradient-sunset); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">$309M</div>
+                    <div style="font-size: 0.75rem; color: var(--neutral-mid); margin-top: 0.25rem;">TPV at Payphone</div>
+                </div>
+                <div style="background: rgba(123,47,247,0.08); border-radius: 12px; padding: 1rem; text-align: center;">
+                    <div style="font-family: var(--font-mono); font-weight: 600; font-size: 1.5rem; background: var(--gradient-sunset); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">$5M+</div>
+                    <div style="font-size: 0.75rem; color: var(--neutral-mid); margin-top: 0.25rem;">AI Automation Savings</div>
+                </div>
+            </div>
+
+            <h4 style="color: var(--hot-pink); margin-top: 2rem; margin-bottom: 1rem;">Recognition</h4>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <span style="background: rgba(255,45,135,0.1); color: var(--hot-pink); padding: 6px 14px; border-radius: 8px; font-size: 0.8rem;">Forbes Colombia 2024</span>
+                <span style="background: rgba(255,45,135,0.1); color: var(--hot-pink); padding: 6px 14px; border-radius: 8px; font-size: 0.8rem;">SFBJ 40 Under 40 2023</span>
+                <span style="background: rgba(255,45,135,0.1); color: var(--hot-pink); padding: 6px 14px; border-radius: 8px; font-size: 0.8rem;">Top 10 Hispanic Tech Leaders 2023</span>
+                <span style="background: rgba(255,45,135,0.1); color: var(--hot-pink); padding: 6px 14px; border-radius: 8px; font-size: 0.8rem;">American Banker Most Influential in Fintech 2024</span>
+                <span style="background: rgba(255,45,135,0.1); color: var(--hot-pink); padding: 6px 14px; border-radius: 8px; font-size: 0.8rem;">Fintech Breakthrough Best Neobank 2024</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PEDRO INFANTE -->
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; margin-bottom: 4rem; align-items: start;">
+        <div style="background: rgba(0,229,255,0.06); border: 1px solid rgba(0,229,255,0.2); border-radius: 16px; padding: 2rem; text-align: center;">
+            <div style="width: 120px; height: 120px; border-radius: 50%; background: var(--gradient-aurora); margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: var(--font-display); font-weight: 800; font-size: 2.5rem; color: white;">PI</span>
+            </div>
+            <h3 style="color: white; margin-bottom: 0.25rem; font-size: 1.5rem;">Pedro Infante</h3>
+            <p style="color: var(--electric-cyan); font-family: var(--font-display); font-weight: 600; font-size: 0.95rem; margin-bottom: 1rem;">Co-Founder & Chief Compliance Officer</p>
+            <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+                <span style="background: rgba(0,229,255,0.1); color: var(--electric-cyan); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-family: var(--font-mono);">Compliance</span>
+                <span style="background: rgba(255,45,135,0.1); color: var(--hot-pink); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-family: var(--font-mono);">BSA/AML</span>
+                <span style="background: rgba(255,214,0,0.1); color: var(--solar-yellow); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-family: var(--font-mono);">Risk</span>
+                <span style="background: rgba(123,47,247,0.15); color: var(--ultraviolet); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-family: var(--font-mono);">LATAM</span>
+            </div>
+        </div>
+        <div>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--neutral-light); margin-bottom: 1.5rem;">
+                Pedro brings <strong style="color: white;">14+ years of leadership</strong> in FinTech compliance, global payments, and regulated financial services. As <strong style="color: white;">Chief Compliance Officer at Bambu Systems</strong> (MyBambu's parent company) since 2019, he architects and executes the entire BSA/AML compliance program in partnership with Metropolitan Commercial Bank, managing a team of <strong style="color: var(--electric-cyan);">70+ compliance professionals</strong>.
+            </p>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--neutral-light); margin-bottom: 1.5rem;">
+                Pedro has <strong style="color: var(--solar-yellow);">mitigated over $10M in potential regulatory fines</strong> through proactive compliance framework overhaul. He leads Money Transmitter License (MTL) acquisition and maintenance across 50+ states, oversees Reg E operations, ACH security, OFAC reporting, and KYC protocols, and serves as the primary liaison for government investigations and regulatory requests.
+            </p>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--neutral-light); margin-bottom: 1.5rem;">
+                Before Bambu, Pedro served as <strong style="color: white;">Head of Latin America at ACFCS</strong> (Association of Certified Financial Crime Specialists), where he scaled the international financial crime certification division from <strong style="color: var(--electric-cyan);">zero to 73 countries</strong>, building alliances with PwC, LexisNexis, Ernst & Young, and Thomson Reuters. He has attended and exhibited at <strong style="color: var(--electric-cyan);">56+ financial crime and fintech conferences across 18 countries</strong>.
+            </p>
+
+            <h4 style="color: var(--hot-pink); margin-top: 2rem; margin-bottom: 1rem;">Core Expertise</h4>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                <div style="background: rgba(0,229,255,0.06); border-radius: 12px; padding: 1rem;">
+                    <div style="font-weight: 600; color: white; font-size: 0.9rem; margin-bottom: 0.5rem;">Compliance Architecture</div>
+                    <div style="font-size: 0.8rem; color: var(--neutral-mid); line-height: 1.5;">BSA/AML program design, CMS pillars, risk assessments, compliance testing, SARs filing, enterprise-wide audits</div>
+                </div>
+                <div style="background: rgba(0,229,255,0.06); border-radius: 12px; padding: 1rem;">
+                    <div style="font-weight: 600; color: white; font-size: 0.9rem; margin-bottom: 0.5rem;">Regulatory & Licensing</div>
+                    <div style="font-size: 0.8rem; color: var(--neutral-mid); line-height: 1.5;">Money Transmitter Licenses (50+ states), FinCEN, FINRA, Bank Secrecy Act, USA PATRIOT Act, OFAC sanctions</div>
+                </div>
+                <div style="background: rgba(0,229,255,0.06); border-radius: 12px; padding: 1rem;">
+                    <div style="font-weight: 600; color: white; font-size: 0.9rem; margin-bottom: 0.5rem;">Fraud & Financial Crime</div>
+                    <div style="font-size: 0.8rem; color: var(--neutral-mid); line-height: 1.5;">AI/ML-enabled crime detection, digital fraud prevention, CIP/KYC for high-volume fintech, vendor governance for IDV</div>
+                </div>
+                <div style="background: rgba(0,229,255,0.06); border-radius: 12px; padding: 1rem;">
+                    <div style="font-weight: 600; color: white; font-size: 0.9rem; margin-bottom: 0.5rem;">Global LATAM Operations</div>
+                    <div style="font-size: 0.8rem; color: var(--neutral-mid); line-height: 1.5;">Scaled ACFCS to 73 countries, compliance training across LATAM, alliances with Big 4, universities, and governments</div>
+                </div>
+            </div>
+
+            <h4 style="color: var(--hot-pink); margin-top: 2rem; margin-bottom: 1rem;">Education & Certifications</h4>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <span style="background: rgba(0,229,255,0.1); color: var(--electric-cyan); padding: 6px 14px; border-radius: 8px; font-size: 0.8rem;">BBA International Business — Keiser University</span>
+                <span style="background: rgba(0,229,255,0.1); color: var(--electric-cyan); padding: 6px 14px; border-radius: 8px; font-size: 0.8rem;">FATCA Certificate</span>
+                <span style="background: rgba(0,229,255,0.1); color: var(--electric-cyan); padding: 6px 14px; border-radius: 8px; font-size: 0.8rem;">AML Certificate</span>
+                <span style="background: rgba(0,229,255,0.1); color: var(--electric-cyan); padding: 6px 14px; border-radius: 8px; font-size: 0.8rem;">FCPA Certificate</span>
+                <span style="background: rgba(0,229,255,0.1); color: var(--electric-cyan); padding: 6px 14px; border-radius: 8px; font-size: 0.8rem;">Bilingual: English & Spanish</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHY THIS TEAM -->
+    <div style="background: var(--gradient-prism); border-radius: 16px; padding: 3rem; margin-top: 2rem;">
+        <h3 style="color: white; font-size: 1.75rem; margin-bottom: 1.5rem; text-shadow: 0 2px 8px rgba(0,0,0,0.2);">Why This Team Wins</h3>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+            <div>
+                <h4 style="color: white; font-size: 1rem; margin-bottom: 0.5rem; text-shadow: 0 1px 4px rgba(0,0,0,0.2);">Operator + Regulator</h4>
+                <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem; line-height: 1.6;">Val builds and scales. Pedro ensures every system is compliant. Together, they deploy AI that works in production AND passes audits.</p>
+            </div>
+            <div>
+                <h4 style="color: white; font-size: 1rem; margin-bottom: 0.5rem; text-shadow: 0 1px 4px rgba(0,0,0,0.2);">Billion-Dollar Track Record</h4>
+                <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem; line-height: 1.6;">$3B+ in money movement, 1.2M accounts, $309M TPV, $10M+ in regulatory risk mitigated. They've done it at scale — not in a lab.</p>
+            </div>
+            <div>
+                <h4 style="color: white; font-size: 1rem; margin-bottom: 0.5rem; text-shadow: 0 1px 4px rgba(0,0,0,0.2);">Native US + LATAM</h4>
+                <p style="color: rgba(255,255,255,0.9); font-size: 0.9rem; line-height: 1.6;">Both bilingual. Both operated in 18+ countries. Pedro scaled ACFCS to 73 nations. Val built consumer products for immigrant communities across the Americas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 13: DO'S AND DON'TS -->
+<section id="dos-donts" class="section dark">
+    <h2 class="section-title">Do's & Don'ts</h2>
+    <p class="section-subtitle">Visual usage rules and common violations</p>
+
+    <div style="max-width: 1000px;">
+        <h3 style="color: var(--electric-cyan);">Logo Usage</h3>
+        <div class="do-dont-grid">
+            <div class="do-dont-card do">
+                <div class="do-dont-visual" style="background: var(--midnight);">
+                    <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; background: var(--gradient-prism); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">AXIOM</div>
+                </div>
+                <div class="do-dont-label">DO</div>
+                <div class="do-dont-desc">Use gradient on dark backgrounds for maximum impact</div>
+            </div>
+            <div class="do-dont-card dont">
+                <div class="do-dont-visual" style="background: var(--midnight);">
+                    <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--n-700); border: 3px solid var(--hot-pink); padding: 1rem;">AXIOM</div>
+                </div>
+                <div class="do-dont-label">DON'T</div>
+                <div class="do-dont-desc">Never place the logo inside a box or container</div>
+            </div>
+        </div>
+
+        <h3 style="color: var(--hot-pink); margin-top: 4rem;">Color Usage</h3>
+        <div class="do-dont-grid">
+            <div class="do-dont-card do">
+                <div class="do-dont-visual">
+                    <div style="width: 100%; height: 80px; background: var(--ultraviolet);"></div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.5rem;">
+                        <div style="height: 40px; background: var(--hot-pink);"></div>
+                        <div style="height: 40px; background: var(--electric-cyan);"></div>
+                    </div>
+                </div>
+                <div class="do-dont-label">DO</div>
+                <div class="do-dont-desc">Use Ultraviolet as dominant color (40%+), with Pink and Cyan as accents</div>
+            </div>
+            <div class="do-dont-card dont">
+                <div class="do-dont-visual">
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem;">
+                        <div style="height: 80px; background: var(--ultraviolet);"></div>
+                        <div style="height: 80px; background: var(--hot-pink);"></div>
+                        <div style="height: 80px; background: var(--electric-cyan);"></div>
+                        <div style="height: 80px; background: var(--solar-yellow);"></div>
+                    </div>
+                </div>
+                <div class="do-dont-label">DON'T</div>
+                <div class="do-dont-desc">Never use all colors equally — this creates visual chaos</div>
+            </div>
+        </div>
+
+        <h3 style="color: var(--electric-cyan); margin-top: 4rem;">Typography</h3>
+        <div class="do-dont-grid">
+            <div class="do-dont-card do">
+                <div class="do-dont-visual">
+                    <h3 style="font-family: var(--font-display); font-weight: 800; color: var(--ultraviolet); margin-bottom: 0.5rem;">Deploy AI Agents</h3>
+                    <p style="font-family: var(--font-body); font-weight: 400; color: var(--neutral-dark); font-size: 0.875rem;">Build production-ready systems that automate compliance, customer care, and operations.</p>
+                </div>
+                <div class="do-dont-label">DO</div>
+                <div class="do-dont-desc">Pair Montserrat headlines with Inter body text</div>
+            </div>
+            <div class="do-dont-card dont">
+                <div class="do-dont-visual">
+                    <h3 style="font-family: var(--font-display); font-weight: 800; color: var(--ultraviolet); margin-bottom: 0.5rem;">Deploy AI Agents</h3>
+                    <p style="font-family: var(--font-display); font-weight: 400; color: var(--neutral-dark); font-size: 0.875rem;">Build production-ready systems that automate compliance, customer care, and operations.</p>
+                </div>
+                <div class="do-dont-label">DON'T</div>
+                <div class="do-dont-desc">Never use Montserrat for body text — it's for display only</div>
+            </div>
+        </div>
+
+        <h3 style="color: var(--solar-yellow); margin-top: 4rem;">Brand Voice</h3>
+        <div class="voice-grid">
+            <div class="voice-card do">
+                <div class="voice-label">DO</div>
+                <p><strong>Be specific and credible:</strong></p>
+                <p style="margin-top: 0.5rem; color: var(--neutral-dark);">"We scaled MyBambu to 1M+ accounts and ran growth at Payphone across $309M in TPV."</p>
+            </div>
+            <div class="voice-card dont">
+                <div class="voice-label">DON'T</div>
+                <p><strong>Be vague and generic:</strong></p>
+                <p style="margin-top: 0.5rem; color: var(--neutral-dark);">"We help companies leverage AI to transform their operations and unlock growth potential."</p>
+            </div>
+            <div class="voice-card do">
+                <div class="voice-label">DO</div>
+                <p><strong>Use active, precise verbs:</strong></p>
+                <p style="margin-top: 0.5rem; color: var(--neutral-dark);">"We build AI agents. We deploy them into production. We train your team."</p>
+            </div>
+            <div class="voice-card dont">
+                <div class="voice-label">DON'T</div>
+                <p><strong>Use passive, corporate jargon:</strong></p>
+                <p style="margin-top: 0.5rem; color: var(--neutral-dark);">"AI solutions are implemented through our comprehensive transformation methodology."</p>
+            </div>
+        </div>
+
+        <h3 style="color: var(--hot-pink); margin-top: 4rem;">Final Golden Rule</h3>
+        <div style="background: var(--gradient-prism); padding: 3rem; border-radius: 12px; text-align: center; margin-top: 2rem;">
+            <h3 style="color: white; font-size: 1.75rem; font-weight: 800; margin-bottom: 1rem;">
+                If it could work for any other AI company, it's not Axiom.
+            </h3>
+            <p style="color: white; font-size: 1.125rem; opacity: 0.9;">
+                Every design decision, every word, every color choice should be <strong>distinct, specific, and impossible to confuse with anyone else.</strong>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<section class="section light" style="border-top: 1px solid var(--n-200); padding: 3rem 2rem;">
+    <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+        <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 800; background: var(--gradient-prism); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem;">
+            AXIOM
+        </div>
+        <p style="color: var(--neutral-mid); font-size: 0.875rem; margin-bottom: 0.5rem;">Build. Deploy. Train.</p>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--neutral-mid);">
+            Brand Guidelines v1.0 — April 2026<br>
+            © 2026 Axiom. All rights reserved.
+        </p>
+        <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--neutral-mid); margin-top: 2rem;">
+            CONFIDENTIAL — FOR INTERNAL & PARTNER USE ONLY
+        </p>
+    </div>
+</section>
+
+</body>
+</html>
